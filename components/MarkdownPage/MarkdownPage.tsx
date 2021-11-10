@@ -7,10 +7,9 @@ export const MarkdownPage: React.FC = ({}) => {
    const [text, setText] = useState('');
    marked.setOptions({
       renderer: new marked.Renderer(),
-      highlight: function (code, lang) {
+      highlight: code => {
          const hljs = require('highlight.js');
-         const language = hljs.getLanguage(lang) ? lang : 'javascript';
-         return hljs.highlight(code, { language }).value;
+         return hljs.highlightAuto(code).value;
       },
       langPrefix: 'hljs language-' // highlight.js css expects a top-level 'hljs' class.
    });
