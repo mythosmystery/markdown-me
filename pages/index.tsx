@@ -6,7 +6,7 @@ import { Body } from '../components/Body';
 import { MarkdownPage } from '../components/MarkdownPage/MarkdownPage';
 
 const Home: FC = () => {
-   const [dark, setDark] = useState(false);
+   const [dark, setDark] = useState(true);
    const variants = {
       dark: {
          opacity: 1
