@@ -20,7 +20,7 @@ const Home: FC = () => {
    return (
       <div className={dark ? 'dark' : ''}>
          <Head>
-            <title>Create Next App</title>
+            <title>Markdown It - Free Markdown Viewer</title>
             <link rel='icon' href='/favicon.ico' />
          </Head>
 
