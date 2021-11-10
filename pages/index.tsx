@@ -1,20 +1,22 @@
 import Head from 'next/head';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Button from '../components/button/Button';
 import { motion } from 'framer-motion';
 import { Body } from '../components/Body';
 import { MarkdownPage } from '../components/MarkdownPage/MarkdownPage';
 
 const Home: FC = () => {
-   const [dark, setDark] = useState(true);
-   const variants = {
-      dark: {
-         opacity: 1
-      },
-      light: {
-         opacity: 0
-      }
+   const [dark, setDarkState] = useState(true);
+
+   const setDark = (val: boolean) => {
+      setDarkState(val);
+      localStorage.setItem('dark', JSON.stringify(val));
    };
+
+   useEffect(() => {
+      setDark(localStorage.getItem('dark') ? JSON.parse(localStorage.getItem('dark') as string) : true);
+   });
+
    return (
       <div className={dark ? 'dark' : ''}>
          <Head>
@@ -30,7 +32,7 @@ const Home: FC = () => {
             <MarkdownPage />
          </Body>
 
-         <motion.div animate={dark ? 'dark' : 'light'} variants={variants}>
+         <motion.div animate={dark ? { opacity: 1 } : { opacity: 0 }}>
             <div className='absolute w-screen h-full bg-gray-900 z-0'></div>
          </motion.div>
       </div>
