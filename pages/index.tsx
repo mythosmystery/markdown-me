@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import Button from '../components/button/Button';
 import { motion } from 'framer-motion';
 import { Body } from '../components/Body';
+import { MarkdownPage } from '../components/MarkdownPage/MarkdownPage';
 
 const Home: FC = () => {
    const [dark, setDark] = useState(false);
@@ -21,14 +22,12 @@ const Home: FC = () => {
             <link rel='icon' href='/favicon.ico' />
          </Head>
 
-         <div className='absolute m-4 z-50'>
+         <div className='absolute m-4 right-1 z-50'>
             <Button.ToggleTheme dark={dark} setDark={setDark}></Button.ToggleTheme>
          </div>
 
          <Body>
-            <div className='w-2/4 h-full break-words dark:bg-gray-800 p-4'>
-               asdhaksjdhaksjhdaksjhdkasjhdkasjhdlaksjflkdjflskdjflsdkjflsdkjflsdkjflskdjflsdkjflskdjflskdjflskdjfkldj
-            </div>
+            <MarkdownPage />
          </Body>
 
          <motion.div animate={dark ? 'dark' : 'light'} variants={variants}>

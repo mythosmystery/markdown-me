@@ -7,8 +7,8 @@ import { transition } from '../../constants';
 const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = props => {
    return (
       <motion.div
-         whileHover={{ scale: 1.15, opacity: 0.9 }}
-         whileTap={{ scale: 1.3 }}
+         whileHover={{ scale: 1.15 }}
+         whileTap={{ scale: 1.5 }}
          animate={{ scale: 1, opacity: 1, transition }}
          initial={{ scale: 0 }}>
          <button
