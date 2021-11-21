@@ -7,8 +7,6 @@ const isProd = process.env.NODE_ENV === 'production';
 module.exports = {
    images: {
       loader: 'imgix',
-      path: isProd ? 'https://mythosmystery.github.io' : 'http://localhost:3000'
-   },
-   assetPrefix: isProd ? '/markdown-it' : '',
-   basePath: isProd ? '/markdown-it' : ''
+      path: isProd ? 'https://markdownit.ga' : 'http://localhost:3000'
+   }
 };
