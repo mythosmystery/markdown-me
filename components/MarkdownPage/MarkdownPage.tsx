@@ -36,21 +36,24 @@ export const MarkdownPage: React.FC = ({}) => {
                <Textarea
                   onChange={event => setText(event.target.value)}
                   placeholder='Enter your markdown code here...'
-                  value={text === initialString ? '' : text}></Textarea>
+                  value={text === initialString ? '' : text}
+               ></Textarea>
             </div>
          </motion.div>
 
          <motion.h1
             initial={{ y: -500 }}
             animate={{ y: 0 }}
-            className='border-none my-0 py-0 dark:text-gray-400 lg:hidden'>
+            className='border-none my-0 py-0 dark:text-gray-400 lg:hidden'
+         >
             Output
          </motion.h1>
 
          <motion.div initial={{ x: 500 }} animate={{ x: 0 }} className='h-full w-full lg:w-2/4'>
             <div
-               className='lg:overflow-y-scroll overflow-x-auto lg:overflow-x-auto h-full break-words mt-2 dark:bg-gray-800 shadow-lg bg-gray-200 p-6 dark:text-gray-400'
-               dangerouslySetInnerHTML={{ __html: marked.parse(text) }}></div>
+               className='lg:overflow-y-scroll scrollbar-hide overflow-x-auto lg:overflow-x-auto h-full break-words mt-2 dark:bg-gray-800 shadow-lg bg-gray-200 p-6 dark:text-gray-400'
+               dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
+            ></div>
          </motion.div>
 
          <div className='fixed m-2 top-0 left-0 z-50'>
