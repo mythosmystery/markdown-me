@@ -5,15 +5,9 @@ import 'highlight.js/styles/atom-one-light.css';
 import { motion } from 'framer-motion';
 import Button from '../button/Button';
 import { FaSave } from 'react-icons/fa';
+import { initialString } from '../../constants';
 
 export const MarkdownPage: React.FC = ({}) => {
-   const initialString = `
-   # Your markdown here!
-   * Full formatting!
-   * Syntax highlighting!
-   * More!   
-   `;
-
    const [text, setText] = useState('');
 
    marked.setOptions({
@@ -34,6 +28,7 @@ export const MarkdownPage: React.FC = ({}) => {
          <motion.div initial={{ x: -500 }} animate={{ x: 0 }} className='h-full w-full lg:w-2/4'>
             <div className='h-[360px] lg:h-full break-words dark:bg-gray-800 shadow-lg bg-gray-200 mt-2'>
                <Textarea
+                  id='editor'
                   onChange={event => setText(event.target.value)}
                   placeholder='Enter your markdown code here...'
                   value={text === initialString ? '' : text}
@@ -51,6 +46,7 @@ export const MarkdownPage: React.FC = ({}) => {
 
          <motion.div initial={{ x: 500 }} animate={{ x: 0 }} className='h-full w-full lg:w-2/4'>
             <div
+               id='preview'
                className='lg:overflow-y-scroll scrollbar-hide overflow-x-auto lg:overflow-x-auto h-full break-words mt-2 dark:bg-gray-800 shadow-lg bg-gray-200 p-6 dark:text-gray-400'
                dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
             ></div>

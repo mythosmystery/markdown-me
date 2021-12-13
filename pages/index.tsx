@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { FC, useEffect, useState } from 'react';
 import Button from '../components/button/Button';
 import { motion } from 'framer-motion';
-import { Body } from '../components/Body';
+import { Layout } from '../components/layout';
 import { MarkdownPage } from '../components/MarkdownPage/MarkdownPage';
 
 const Home: FC = () => {
@@ -28,9 +28,9 @@ const Home: FC = () => {
             <Button.ToggleTheme dark={dark} setDark={setDark}></Button.ToggleTheme>
          </div>
 
-         <Body>
+         <Layout>
             <MarkdownPage />
-         </Body>
+         </Layout>
 
          <motion.div animate={dark ? { opacity: 1 } : { opacity: 0 }}>
             <div className='absolute w-screen h-full bg-gray-900 z-0'></div>
